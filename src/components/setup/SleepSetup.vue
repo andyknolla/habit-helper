@@ -5,16 +5,19 @@
     <table>
       <thead>
         <th>Description</th>
-        <th>Goals</th>
+        <th>Current Goal</th>
+        <th>Edit</th>
       </thead>
       <tbody>
         <tr>
           <td>Wake time</td>
-          <td><input /></td>
+          <td>{{ wake_time }}</td>
+          <td><button @click="changeWakeTime" >Change</button><input /></td>
         </tr>
         <tr>
           <td>Bed Time</td>
-          <td><input /></td>
+          <td>{{ bed_time }}</td>
+          <td><button @click="changeBedTime" >Change</button><input /></td>
         </tr>
         <tr>
           <td>Total Sleep</td>
@@ -27,8 +30,28 @@
 </template>
 
 <script>
+import store from '../../store'
+
 export default({
 
+  methods: {
+    changeWakeTime() {
+      store.commit('editSleepTime')
+    },
+    changeBedTime() {
+      store.commit('editBedTime')
+    }
+  },
+  computed: {
+    wake_time() {
+      return store.state.wake_time
+      // return this.$store.state.wake_time
+    },
+    bed_time() {
+      return store.state.bed_time
+      // return this.$store.state.wake_time
+    }
+  }
 })
 
 </script>

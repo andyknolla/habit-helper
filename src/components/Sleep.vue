@@ -11,12 +11,12 @@
       <tbody>
         <tr>
           <td>Wake time</td>
-          <td>5:30</td>
+          <td>{{ wake_time }}</td>
           <td>8:30</td>
         </tr>
         <tr>
           <td>Bed Time</td>
-          <td>10pm</td>
+          <td>{{ bed_time }}</td>
           <td>10:30</td>
         </tr>
         <tr>
@@ -31,7 +31,17 @@
 </template>
 
 <script>
+import store from '../store'
+
 export default({
+  computed: {
+    wake_time() {
+      return store.state.wake_time
+    },
+    bed_time() {
+      return store.state.bed_time
+    }
+  }
 
 })
 

@@ -11,14 +11,12 @@ export default {
 
   data() {
     return {
-        wake_time: '',
-        bed_time: '',
-        total_sleep: ''
+
     }
   },
 
   methods: {
-    
+
   }
 }
 </script>

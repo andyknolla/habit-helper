@@ -6,16 +6,20 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
-    wake_time: 'Hella early',
+    goal_title:'Wake up time',
+    goal_description:'Wake up by 6am',
+    goal_reason: 'So I can be more productive and have more energy!',
+    wake_time: 'from store...Goal is to wake up by 6am',
     bed_time: 'Also really early',
     total_sleep: ''
   },
   mutations: {
-    editSleepTime(state) {
-      state.wake_time = '6am'
+
+    editGoalTitle(state) {
+      state.goal_title = 'Morning Routine'
     },
-    editBedTime(state) {
-      state.bed_time = '9pm'
+    editGoalDescription(state) {
+      state.goal_description = 'Wake up by 5am!!!!'
     }
   }
 

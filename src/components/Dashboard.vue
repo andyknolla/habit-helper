@@ -3,21 +3,17 @@
     <router-link to="/">Home</router-link>
     <router-link to="/Setup">Setup</router-link>
     <h1>Dashboard</h1>
-    <Sleep />
-    <Diet />
-    <Exercise />
+    <Habit />
   </div>
 </template>
 
 <script>
-  import Exercise from './Exercise.vue';
-  import Diet from './Diet.vue';
-  import Sleep from './Sleep.vue';
+  import Habit from './Habit.vue';
 
   export default {
     name: 'dashboard',
 
-    components: { Sleep, Diet, Exercise },
+    components: { Habit },
 
     data () {
       return {

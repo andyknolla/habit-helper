@@ -1,12 +1,17 @@
 <template>
-  <div class="single-habit" v-bind:class="{ complete: habitStatus }">
-    <h1>Habit Title...{{ goal_title }} </h1><span><router-link to="/setup">Edit</router-link></span>
-    <div>Goal description: {{ goal_description }}</div>
-    <div>Why?: {{ goal_reason }}</div>
+  <md-card md-with-hover v-bind:class="{ complete: habitStatus }">
+    <md-card-header>
+      <div class="md-title">Habit Title...{{ goal_title }}</div>
+      <div class="md-subhead"><router-link to="/setup">Edit</router-link></div>
+    </md-card-header>
 
-    <button @click="completeGoal">Check!</button>
+    <md-card-content>
+      <div>Goal description: {{ goal_description }}</div>
+      <div>Why?: {{ goal_reason }}</div>
+    </md-card-content>
 
-  </div>
+    <md-button @click="completeGoal">Check!</md-button>
+  </md-card>
 </template>
 
 <script>

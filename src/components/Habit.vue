@@ -2,7 +2,7 @@
   <md-card md-with-hover v-bind:class="{ complete: habitStatus }">
     <md-card-header>
       <div class="md-title">Habit Title...{{ goal_title }}</div>
-      <div class="md-subhead"><router-link to="/setup">Edit</router-link></div>
+      <span class="md-subhead"><router-link to="/setup"><md-icon md-iconset="fa fa-pencil"></md-icon></router-link></span>
     </md-card-header>
 
     <md-card-content>
@@ -54,6 +54,6 @@ export default({
   }
 
   .complete {
-    background: green;
+    border: 2px solid green;
   }
 </style>

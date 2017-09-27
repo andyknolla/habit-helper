@@ -1,10 +1,24 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/Setup">Setup</router-link>
-    <h1>Today</h1>
-    <div>{{ todaysDate }}</div>
-    <Habit />
+    <!-- <md-layout md-flex-small="100"> -->
+    <!-- <div> -->
+    <md-layout md-align="center">
+      <router-link to="/">Home</router-link>
+      <router-link to="/Setup">Setup</router-link>
+    </md-layout>
+    <!-- </md-layout> -->
+
+    <!-- <md-layout md-flex-small="100"> -->
+    <md-layout md-vertical-align="center" md-column class="day-header">
+      <h1 class="md-display-1">Today</h1>
+      <div class="md-body-1">{{ todaysDate }}</div>
+    </md-layout>
+    <!-- </md-layout> -->
+
+    <!-- <md-layout md-flex-small="100"> -->
+      <Habit />
+    <!-- </div> -->
+    <!-- </md-layout> -->
   </div>
 </template>
 
@@ -35,4 +49,7 @@
 </script>
 
 <style>
+  .day-header {
+    margin-bottom: 20px;
+  }
 </style>

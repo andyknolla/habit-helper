@@ -2,7 +2,8 @@
   <div>
     <router-link to="/">Home</router-link>
     <router-link to="/Setup">Setup</router-link>
-    <h1>Dashboard</h1>
+    <h1>Today</h1>
+    <div>Today's date: </div>
     <Habit />
   </div>
 </template>
@@ -17,7 +18,7 @@
 
     data () {
       return {
-        
+
       }
     },
     methods: {

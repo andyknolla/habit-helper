@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/">Home</router-link>
-    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/dayview">Day View</router-link>
     <h1>Setup</h1>
     <HabitSetup />
 

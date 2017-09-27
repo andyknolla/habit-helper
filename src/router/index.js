@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Setup from '@/components/Setup'
 
-import Dashboard from '@/components/Dashboard'
+import DayView from '@/components/DayView'
 
 Vue.use(Router)
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
+      path: '/dayview',
+      name: 'dayview',
+      component: DayView
     },
     {
       path: '/setup',

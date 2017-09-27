@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Habit Helper</h1>
     <router-link to="/setup">Setup</router-link>
-    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/dayview">Day View</router-link>
 
   </div>
 </template>

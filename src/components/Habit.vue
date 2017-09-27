@@ -16,9 +16,6 @@ export default({
     },
     goal_description() {
       return store.state.goal_description
-    },
-    bed_time() {
-      return store.state.bed_time
     }
   }
 

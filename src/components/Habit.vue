@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Habit Title...{{ goal_title }}</h1>
+    <h1>Habit Title...{{ goal_title }} </h1><span><router-link to="/setup">Edit</router-link></span>
     <div>Goal description: {{ goal_description }}</div>
+    <div>Why?: {{ goal_reason }}</div>
 
   </div>
 </template>
@@ -16,6 +17,9 @@ export default({
     },
     goal_description() {
       return store.state.goal_description
+    },
+    goal_reason() {
+      return store.state.goal_reason
     }
   }
 

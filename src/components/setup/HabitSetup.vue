@@ -22,6 +22,14 @@
         <md-input v-model="habitData.description" />
       </md-input-container>
 
+      <div>
+        <div>Is this a good or bad habit?</div>
+        <label>Good</label>
+        <md-radio md-value="good" v-model="habitData.type" type="radio" name="type" />
+        <label>Bad</label>
+        <md-radio md-value="bad" v-model="habitData.type" type="radio" name="type" />
+      </div>
+
       <md-input-container>
         <label>Why</label>
         <md-input v-model="habitData.why" />
@@ -51,7 +59,6 @@ export default({
   methods: {
     handleSubmit() {
       store.commit('editHabit', this.habitData)
-
     },
 
     changeGoalDescription() {

@@ -10,6 +10,7 @@ export default new Vuex.Store({
       title: 'New Title',
       description: 'new desc',
       why: 'because dirka',
+      type: 'good',
       complete: false
     }
   },

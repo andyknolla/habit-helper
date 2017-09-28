@@ -6,7 +6,8 @@
     </md-card-header>
 
     <md-card-content>
-      <div>Goal description: {{ habitData.description }}</div>
+      <div>Habit description: {{ habitData.description }}</div>
+      <div>Habit type: {{ habitData.type }}</div>
       <div>Why?: {{ habitData.why }}</div>
     </md-card-content>
 

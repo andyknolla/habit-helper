@@ -1,15 +1,34 @@
 <template>
   <div>
 
-    <h2>Habit Title...{{ habitData.title }}</h2>
+    <md-card md-with-hover v-bind:class="{ complete: habitData.complete }">
+      <md-card-header>
+        <div class="md-title">{{ habitData.title }}</div>
+      </md-card-header>
 
-    <div>Goal description: {{ habitData.description }}</div>
-    <div>Why?: {{ habitData.why }}</div>
+      <md-card-content>
+        <div>Goal description: {{ habitData.description }}</div>
+        <div>Why?: {{ habitData.why }}</div>
+      </md-card-content>
+    </md-card>
 
-    <input v-model="habitData.title" />
-    <input v-model="habitData.description" />
-    <input v-model="habitData.why" />
-    <button @click='handleSubmit'>Submit</button>
+    <form @submit.prevent="handleSubmit">
+      <md-input-container>
+        <label>Title</label>
+        <md-input v-model="habitData.title" />
+      </md-input-container>
+      <md-input-container>
+        <label>Description</label>
+        <md-input v-model="habitData.description" />
+      </md-input-container>
+
+      <md-input-container>
+        <label>Why</label>
+        <md-input v-model="habitData.why" />
+      </md-input-container>
+
+      <md-button class="md-raised md-primary" @click='handleSubmit'>Submit</md-button>
+    </form>
 
   </div>
 </template>

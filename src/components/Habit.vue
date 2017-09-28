@@ -1,5 +1,5 @@
 <template>
-  <md-card md-with-hover v-bind:class="{ complete: habitStatus }">
+  <md-card md-with-hover v-bind:class="{ complete: habitData.complete }">
     <md-card-header>
       <div class="md-title">Habit Title...{{ habitData.title }}</div>
       <span class="md-subhead"><router-link to="/setup"><md-icon md-iconset="fa fa-pencil"></md-icon></router-link></span>
@@ -32,19 +32,6 @@ export default({
     }
   },
   computed: {
-  
-    goal_title() {
-      return store.state.goal_title
-    },
-    goal_description() {
-      return store.state.goal_description
-    },
-    goal_reason() {
-      return store.state.goal_reason
-    },
-    habitStatus() {
-      return store.state.habitComplete
-    }
   }
 
 })

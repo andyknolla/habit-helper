@@ -2,12 +2,14 @@
   <div class="home">
     <h1>Habit Helper</h1>
     <router-link to="/setup">Setup</router-link>
-    <router-link to="/dayview">Day View</router-link>
+    <router-link :to="{ name: 'dayview', params: {date: todaysDate} }">Today</router-link>
 
   </div>
 </template>
 
 <script>
+  import Moment from 'moment'
+
 
   export default {
     name: 'home',
@@ -22,7 +24,9 @@
     },
 
     computed: {
-
+      todaysDate() {
+        return Moment().format("MM-DD-YYYY")
+      }
     }
   }
 </script>

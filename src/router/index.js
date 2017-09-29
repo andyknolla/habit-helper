@@ -15,13 +15,13 @@ export default new Router({
       component: Home
     },
     {
-      path: '/dayview',
+      path: '/dayview/:date',
       name: 'dayview',
       component: DayView
     },
     {
-      path: '/setup',
-      name: 'setup',
+      path: '/setup/:id',
+      name: 'habitSetup',
       component: Setup
     }
   ]

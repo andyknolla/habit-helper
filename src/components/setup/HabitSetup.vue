@@ -9,6 +9,7 @@
       <md-card-content>
         <div>Goal description: {{ habitData.description }}</div>
         <div>Why?: {{ habitData.why }}</div>
+        <div>Loaded id: {{ id }}</div>
       </md-card-content>
     </md-card>
 
@@ -48,12 +49,21 @@ export default({
 
   data() {
     return {
-      habitData: { }
+      habitData: { },
+      id: this.$route.params.id
     }
   },
 
   created() {
-    this.habitData = store.state.habitData
+    this.habitData = store.state.day_habits.find( (habit) => {
+      return habit.id == this.$route.params.id;
+    })
+  },
+  watch: {
+    // for changing habits from within this page...
+    '$route'(to, from) {
+      this.id = to.params.id;
+    }
   },
 
   methods: {

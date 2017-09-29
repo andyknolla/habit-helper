@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
   state: {
-    todaysDate: Moment().format("MMM Do"),
+    todaysDate: Moment().format("MM-DD-YYYY"),
     dayInView: '09-27-2017',
 
     day_habits: [
@@ -74,7 +74,9 @@ export default new Vuex.Store({
     setDayInView(state, payload) {
       state.dayInView = payload
     },
-
+    addHabit(state, payload) {
+      state.day_habits.push(payload)
+    },
     editHabit(state,payload) {
       state.habitData = payload
     },

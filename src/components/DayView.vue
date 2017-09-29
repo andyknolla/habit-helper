@@ -30,12 +30,26 @@
         v-bind:id="habit.id"
         v-bind:date="habit.date"
         v-bind:title="habit.title"
-        b-bind:description="habit.description"
+        v-bind:description="habit.description"
         v-bind:why="habit.why"
         v-bind:type="habit.type"
         v-bind:complete="habit.complete"/>
       </li>
     </ul>
+
+    <!-- <ul>
+      <li v-for="(habit, index) in newHabit"
+      is="Habit"
+      v-bind:key="habit.id"
+      v-bind:id="habit.id"
+      v-bind:date="habit.date"
+      v-bind:title="habit.title"
+      b-bind:description="habit.description"
+      v-bind:why="habit.why"
+      v-bind:type="habit.type"
+      v-bind:complete="habit.complete"/>
+    </li>
+    </ul> -->
 
   </div>
 </template>
@@ -93,6 +107,9 @@
         return this.habits = store.state.day_habits.filter( (habit) => {
           return habit.date == this.$route.params.date
         })
+      },
+      newHabit() {
+        return store.state.day_habits
       }
 
     }

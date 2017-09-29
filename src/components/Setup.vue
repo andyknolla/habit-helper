@@ -1,8 +1,12 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/dayview">Day View</router-link>
+
+    <md-layout md-align="center">
+    <router-link to="/"><md-button>Home</md-button></router-link>
+    <router-link :to="{ name: 'dayview', params: { date:todaysDate } }"><md-button>Today</md-button></router-link>
+  </md-layout>
     <h1>Setup</h1>
+
     <HabitSetup />
 
   </div>
@@ -10,6 +14,7 @@
 
 <script>
   import HabitSetup from './setup/HabitSetup.vue';
+  import store from '../store'
 
   export default {
     name: 'setup',
@@ -26,7 +31,9 @@
     },
 
     computed: {
-
+      todaysDate() {
+        return store.state.todaysDate
+      }
     }
   }
 </script>

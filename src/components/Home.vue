@@ -9,6 +9,7 @@
 
 <script>
   import Moment from 'moment'
+  import store from '../store'
 
 
   export default {
@@ -21,6 +22,12 @@
     },
     methods: {
 
+    },
+    created() {
+      console.log('day_habits: ', store.state.day_habits);
+      if(store.state.day_habits.length > 5) {
+        console.log('new habit: ', store.state.day_habits[5].title);
+      }
     },
 
     computed: {

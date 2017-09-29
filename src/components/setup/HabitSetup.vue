@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <md-card md-with-hover v-bind:class="{ complete: habitData.complete }">
+    <md-card v-if="$route.params.date" md-with-hover v-bind:class="{ complete: habitData.complete }">
       <md-card-header>
         <div class="md-title">{{ habitData.title }}</div>
       </md-card-header>
@@ -31,12 +31,17 @@
         <md-radio md-value="bad" v-model="habitData.type" type="radio" name="type" />
       </div>
 
+      <input type="hidden" name="id" v-model="habitData.id" value="7"/>
+      <input type="hidden" name="date" v-model="habitData.date" value="09-26-2017"/>
+      <input type="hidden" name="complete" v-model="habitData.complete" value="false"/>
+
       <md-input-container>
         <label>Why</label>
         <md-input v-model="habitData.why" />
       </md-input-container>
 
-      <md-button class="md-raised md-primary" @click='handleSubmit'>Submit</md-button>
+      <md-button v-if="$route.params.date" class="md-raised md-primary" @click='handleEdit'>Commit changes</md-button>
+      <md-button class="md-raised md-primary" @click='handleSubmit'>Add Habit</md-button>
     </form>
 
   </div>
@@ -49,15 +54,26 @@ export default({
 
   data() {
     return {
-      habitData: { },
+      habitData: {
+        id: '',
+        date: '09-26-2017',
+        title: '',
+        description: '',
+        why: '',
+        type: '',
+        success: 0,
+        complete: false
+      },
       id: this.$route.params.id
     }
   },
 
   created() {
-    this.habitData = store.state.day_habits.find( (habit) => {
-      return habit.id == this.$route.params.id;
-    })
+    if(this.$route.params.id) {
+      this.habitData = store.state.day_habits.find( (habit) => {
+        return habit.id == this.$route.params.id;
+      })
+    }
   },
   watch: {
     // for changing habits from within this page...
@@ -67,10 +83,13 @@ export default({
   },
 
   methods: {
-    handleSubmit() {
+    handleEdit() {
       store.commit('editHabit', this.habitData)
     },
-
+    handleSubmit() {
+      console.log('habit data: ', this.habitData);
+      store.commit('addHabit', this.habitData)
+    },
     changeGoalDescription() {
       store.commit('editGoalDescription')
     },

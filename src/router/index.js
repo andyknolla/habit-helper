@@ -20,9 +20,15 @@ export default new Router({
       component: DayView
     },
     {
+      path: '/setup',
+      name: 'habitSetup',
+      component: Setup
+    },
+    {
       path: '/setup/:id',
       name: 'habitSetup',
       component: Setup
     }
+
   ]
 })

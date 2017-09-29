@@ -33,7 +33,7 @@
         v-bind:description="habit.description"
         v-bind:why="habit.why"
         v-bind:type="habit.type"
-        v-bind:complete="habit.complete"/>
+        v-bind:completed="habit.completed"/>
       </li>
     </ul>
 

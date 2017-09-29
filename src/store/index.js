@@ -19,7 +19,7 @@ export default new Vuex.Store({
         why: 'because dirka',
         type: 'good',
         success: 0,
-        complete: false
+        completed: false
       },
       {
         id: 2,
@@ -29,7 +29,7 @@ export default new Vuex.Store({
         why: 'because dirka dirka dirka',
         type: 'bad',
         success: 1,
-        complete: false
+        completed: true
       },
       {
         id: 3,
@@ -39,27 +39,27 @@ export default new Vuex.Store({
         why: 'because dirka jihad trebaja',
         type: 'bad',
         success: 0,
-        complete: false
+        completed: false
       },
       {
-        id: 3,
+        id: 4,
         date: "09-28-2017",
         title: 'Title 6',
         description: 'third desc',
         why: 'because dirka jihad trebaja',
         type: 'bad',
         success: 0,
-        complete: false
+        completed: true
       },
       {
-        id: 3,
+        id: 5,
         date: "09-29-2017",
         title: 'Title 3',
         description: 'third desc',
         why: 'because dirka jihad trebaja',
         type: 'bad',
         success: 0,
-        complete: false
+        completed: false
       }
     ],
     habitData: {
@@ -80,8 +80,14 @@ export default new Vuex.Store({
     editHabit(state,payload) {
       state.habitData = payload
     },
-    toggleHabitCompletion(state) {
-      state.habitData.complete ? state.habitData.complete = false : state.habitData.complete = true;
+    toggleHabitCompletion(state, payload) {
+      console.log('store payload', payload);
+      let index;
+      state.day_habits.find( (habit) => {
+        if(habit.id === payload.id) {
+          habit.completed ? habit.completed = false : habit.completed = true
+        }
+      })
     }
   }
 

@@ -1,6 +1,6 @@
 <template>
 
-  <md-card md-with-hover v-bind:class="{ complete: habitData.complete }">
+  <md-card md-with-hover v-bind:class="[ completed ? 'complete' : '' ]">
     <md-card-header>
       <div class="md-title">Habit Title...{{ title }}</div>
       <span class="md-subhead">
@@ -17,9 +17,11 @@
       <div>Why?: {{ why }}</div>
       <div>id: {{  id }}</div>
       <div>date: {{  date }}</div>
+      <div>complete: {{  completed }}</div>
+
     </md-card-content>
 
-    <md-button @click="completeGoal">Check!</md-button>
+    <md-button @click="completeGoal(id)">Check!</md-button>
   </md-card>
 </template>
 
@@ -40,8 +42,9 @@ export default({
   },
 
   methods: {
-    completeGoal() {
-      store.commit('toggleHabitCompletion');
+    completeGoal(id) {
+      console.log('complete goal, id', id);
+      store.commit('toggleHabitCompletion', { id });
     }
   },
 

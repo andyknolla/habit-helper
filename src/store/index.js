@@ -81,7 +81,6 @@ export default new Vuex.Store({
       state.habitData = payload
     },
     toggleHabitCompletion(state, payload) {
-      console.log('store payload', payload);
       let index;
       state.day_habits.find( (habit) => {
         if(habit.id === payload.id) {

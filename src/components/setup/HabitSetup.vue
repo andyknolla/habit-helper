@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <md-card v-if="$route.params.date" md-with-hover v-bind:class="{ complete: habitData.complete }">
+    <md-card v-if="$route.params.id" md-with-hover v-bind:class="{ complete: habitData.complete }">
       <md-card-header>
         <div class="md-title">{{ habitData.title }}</div>
       </md-card-header>
@@ -40,8 +40,9 @@
         <md-input v-model="habitData.why" />
       </md-input-container>
 
-      <md-button v-if="$route.params.date" class="md-raised md-primary" @click='handleEdit'>Commit changes</md-button>
-      <md-button class="md-raised md-primary" @click='handleSubmit'>Add Habit</md-button>
+      <md-button v-if="$route.params.id" class="md-raised md-primary" @click='handleEdit'>Commit changes</md-button>
+      <md-button v-else class="md-raised md-primary" @click='handleSubmit'>Add Habit</md-button>
+
     </form>
 
   </div>
@@ -49,7 +50,6 @@
 
 <script>
 import store from '../../store'
-
 export default({
 
   data() {
@@ -69,6 +69,8 @@ export default({
   },
 
   created() {
+    console.log('params ', this.$route.params);
+
     if(this.$route.params.id) {
       this.habitData = store.state.day_habits.find( (habit) => {
         return habit.id == this.$route.params.id;
@@ -89,6 +91,16 @@ export default({
     handleSubmit() {
       console.log('habit data: ', this.habitData);
       store.commit('addHabit', this.habitData)
+      this.habitData = {
+        id: '',
+        date: '09-26-2017',
+        title: '',
+        description: '',
+        why: '',
+        type: '',
+        success: 0,
+        complete: false
+      }
     },
     changeGoalDescription() {
       store.commit('editGoalDescription')

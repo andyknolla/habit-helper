@@ -26,7 +26,7 @@ export default new Router({
     },
     {
       path: '/setup/:id',
-      name: 'habitSetup',
+      name: 'editHabit',
       component: Setup
     }
 

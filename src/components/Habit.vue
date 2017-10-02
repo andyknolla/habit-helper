@@ -5,7 +5,7 @@
       <div class="md-title">Habit Title...{{ title }}</div>
       <span class="md-subhead">
         <router-link
-          :to="{ name: 'habitSetup', params: { id } }">
+          :to="{ name: 'editHabit', params: { id } }">
           <md-icon md-iconset="fa fa-pencil"></md-icon>
         </router-link>
       </span>
@@ -43,7 +43,6 @@ export default({
 
   methods: {
     completeGoal(id) {
-      console.log('complete goal, id', id);
       store.commit('toggleHabitCompletion', { id });
     }
   },

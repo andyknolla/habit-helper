@@ -130,4 +130,8 @@
   .md-card {
     margin-bottom: 15px;
   }
+
+  .complete {
+    border: 2px solid green;
+  }
 </style>
